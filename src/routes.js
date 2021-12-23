@@ -26,6 +26,6 @@ export default function Router() {
         { path: 'blog', element: <Blog /> }
       ]
     },
-    { path: '*', element: <Navigate to="/404" replace /> }
+    { path: '*', element: <Navigate to="/dashboard" replace /> }
   ]);
 }
