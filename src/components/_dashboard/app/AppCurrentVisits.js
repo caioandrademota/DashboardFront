@@ -1,9 +1,10 @@
-import { merge } from 'lodash';
+import { forEach, merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
 // material
 import { useTheme, styled } from '@mui/material/styles';
 import { Card, CardHeader } from '@mui/material';
 // utils
+import axios from 'axios';
 import { fNumber } from '../../../utils/formatNumber';
 //
 import { BaseOptionChart } from '../../charts';
@@ -31,8 +32,22 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 
 // ----------------------------------------------------------------------
 
-const CHART_DATA = [4344, 5435, 1443, 4443];
+const words = [];
+const array = [];
+axios
+  .get('https://dashboard-sobre-violencia-default-rtdb.firebaseio.com/word_ranking.json')
+  .then((response) => {
+    console.log(response.data);
+    response.data.forEach((e) => words.push(e.count));
+    console.log('here', words);
+  });
 
+for (let index = 0; index < 5; index + 1) {
+  words[index] = array[index];
+}
+
+const CHART_DATA = [];
+console.log(array);
 export default function AppCurrentVisits() {
   const theme = useTheme();
 
