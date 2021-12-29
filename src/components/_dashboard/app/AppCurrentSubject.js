@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 import ReactApexChart from 'react-apexcharts';
 // material
 import { useTheme, styled } from '@mui/material/styles';
-import { Card, CardHeader } from '@mui/material';
+import { Card, CardContent, CardHeader } from '@mui/material';
 //
 import { BaseOptionChart } from '../../charts';
 
@@ -63,10 +63,13 @@ export default function AppCurrentSubject() {
 
   return (
     <Card>
-      <CardHeader title="Current Subject" />
-      <ChartWrapperStyle dir="ltr">
-        <ReactApexChart type="radar" series={CHART_DATA} options={chartOptions} height={340} />
-      </ChartWrapperStyle>
+      <CardHeader title="Objetivo Geral" />
+      <CardContent>
+        Este projeto tem como objetivo o desenvolvimento de um sistema onde, através de um
+        dashboard, serão apresentados dados sobre violência doméstica de maneira que, sendo eles
+        sistematizados análises possam ser feitas em cima deles e que ações de combate serão muito
+        mais assertivas.
+      </CardContent>
     </Card>
   );
 }

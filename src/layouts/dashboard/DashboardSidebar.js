@@ -82,7 +82,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
               Projeto desenvolvido na matéria de Sistemas Paralelos e Distribuídos
             </Typography>
             <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-              From only $69
+              Equipe composta por Bruno França do Prado, Caio Andrade Mota e Fernanda Pinto Lopes
             </Typography>
           </Box>
         </Stack>

@@ -33,7 +33,6 @@ const ChartWrapperStyle = styled('div')(({ theme }) => ({
 // ----------------------------------------------------------------------
 
 const words = [];
-const array = [];
 axios
   .get('https://dashboard-sobre-violencia-default-rtdb.firebaseio.com/word_ranking.json')
   .then((response) => {
@@ -41,13 +40,8 @@ axios
     response.data.forEach((e) => words.push(e.count));
     console.log('here', words);
   });
+const CHART_DATA = [25, 20, 18, 18, 14];
 
-for (let index = 0; index < 5; index + 1) {
-  words[index] = array[index];
-}
-
-const CHART_DATA = [];
-console.log(array);
 export default function AppCurrentVisits() {
   const theme = useTheme();
 
@@ -58,7 +52,7 @@ export default function AppCurrentVisits() {
       theme.palette.warning.main,
       theme.palette.error.main
     ],
-    labels: ['America', 'Asia', 'Europe', 'Africa'],
+    labels: ['Mulheres', 'Contra', 'Vítima', 'Anos', 'Assédio'],
     stroke: { colors: [theme.palette.background.paper] },
     legend: { floating: true, horizontalAlign: 'center' },
     dataLabels: { enabled: true, dropShadow: { enabled: false } },
@@ -78,7 +72,7 @@ export default function AppCurrentVisits() {
 
   return (
     <Card>
-      <CardHeader title="Current Visits" />
+      <CardHeader title="Top 5 palavras mais associadas a violência doméstica" />
       <ChartWrapperStyle dir="ltr">
         <ReactApexChart type="pie" series={CHART_DATA} options={chartOptions} height={280} />
       </ChartWrapperStyle>
